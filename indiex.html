@@ -10,6 +10,9 @@
     <p id="fetchItUp"></p>
     <script>
         const output = document.getElementById('output');
+        const weather = await fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/");
+
+
 
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -23,7 +26,7 @@
 
         //FETCH
         const fetchIt = document.getElementById('fetchItUp');
-        fetch("soubor.txt")
+        fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/London,UK?key=YOUR_API_KEY")
         .then(response => response.text())
         .then(text => fetchIt.innerHTML = "I like gay sex: " + text);
 
