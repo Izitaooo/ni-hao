@@ -8,9 +8,11 @@ html {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: #e1e1e5;
-    opacity: 0.1;
-    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e1e1e5 40px ), repeating-linear-gradient( #5caee655, #5caee6 );
+    background-color: #dfeaeb;
+    opacity: 0.2;
+    background-image: radial-gradient(circle at center center, #48a9ec, #dfeaeb), repeating-radial-gradient(circle at center center,
+    #48a9ec, #48a9ec, 40px, transparent 80px, transparent 40px);
+    background-blend-mode: multiply;
     z-index: -1;
 }
 
@@ -77,7 +79,6 @@ label {
     font-weight: 900;
     font-style: normal;
     font-size: 1.5vw;
-    color: #5caee6;
 }
 
 input {
@@ -87,7 +88,5 @@ input {
     font-size: 1.5vw;
     text-align: center;
     border-radius: 0.4vw;
+    cursor: pointer;
 }
-
-
-
