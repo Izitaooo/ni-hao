@@ -3,16 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>weather</title>
-    <script src="apis.js"></script>
+    <link rel="stylesheet" href="api.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/axt5dcv.css">
 </head>
 <body>
-   <p id="1">max temp</p>
-   <p id="2">min temp</p>
-   <p id="3">conditions</p>
-   <p id="4">humidity</p>
-   <p id="5">wind speed</p>
-   <p id="6">sunrise</p>
-   <p id="7">sunset</p>
-    <button id="but">Search</button>
+<div id="container"></div>
+
+<div id="holder">
+    <div id="inside1">
+        <label for="date">Weather on Date: </label>
+
+        <input
+                type="date"
+                id="date"
+                name="trip-start"
+                value="2025-12-14"
+                min="2018-01-01"
+                max="2026-01-01" />
+
+        <input
+                type="text"
+                id="location"
+                placeholder="enter location"
+                autocomplete="off"
+                name="trip-start"/>
+
+    </div>
+    <div id="inside2">
+        <p id="1">Maximum temperature</p>
+        <p id="2">Minimum temperature</p>
+        <p id="3">Conditions</p>
+        <p id="4">Humidity</p>
+        <p id="5">Wind speed</p>
+        <p id="6">Sunrise at</p>
+        <p id="7">Sunset at</p>
+        <button id="but">
+            <span id="button_top"> Search </span>
+        </button>
+    </div>
+</div>
 </body>
+<script src="apis.js"></script>
 </html>
