@@ -1,7 +1,5 @@
 const apiKey = "5CWL6QRM4L8C7M6F4ZTKGY42N";
 
-const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Prague,CZ?key=${apiKey}&unitGroup=metric&include=days,hours,current`;
-
 
 let t1 = document.getElementById("1");
 let t2 = document.getElementById("2");
@@ -14,7 +12,8 @@ let t7 = document.getElementById("7");
 let button1 = document.getElementById("but");
 let buttonText = document.getElementById("button_top")
 
-
+let picHold = document.getElementById("picHold");
+let pic = "https://api.waifu.pics/sfw/neko"
 
 button1.addEventListener("click", (event) => {
     let dateDay = document.getElementById('date').value
@@ -55,5 +54,22 @@ fetch(url2)
         // např. datumy: data.days, nebo aktuální podmínky: data.currentConditions
     })
     .catch(err => console.error("API error:", err));
+
+    fetch(pic)
+        .then(res => {
+            if (!res.ok){
+                console.log("pic wong");
+                throw new Error(`HTTP error ${res.status} pic wonger`);
+            }
+            return res.json();
+        })
+        .then(data => {
+            const picture = data.url;
+
+            console.log(picture);
+            picHold.style.backgroundImage = "https://i.waifu.pics/dvBjCMa.jpg";
+
+        })
+        .catch(err => console.error("API error:", err));
 });
 

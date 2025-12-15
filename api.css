@@ -90,3 +90,10 @@ input {
     border-radius: 0.4vw;
     cursor: pointer;
 }
+
+#picHold {
+    position: fixed;
+    left: 10vw;
+    top: 30vh;
+    background-image: none;
+}
