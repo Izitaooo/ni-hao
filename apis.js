@@ -1,4 +1,4 @@
-const apiKey = "5CWL6QRM4L8C7M6F4ZTKGY42N";
+const apiKey = "4ZYW7KX5VZ3LJ7HV3U3QYGTGJ";
 
 
 let t1 = document.getElementById("1");
@@ -13,7 +13,41 @@ let button1 = document.getElementById("but");
 let buttonText = document.getElementById("button_top")
 
 let picHold = document.getElementById("picHold");
-let pic = "https://api.waifu.pics/sfw/neko"
+let gifHold = document.querySelectorAll(".rightTing");
+let pic = "https://nekos.best/api/v2/husbando"
+let pic2 = "https://nekos.best/api/v2/neko"
+let picGif = "https://nekos.best/api/v2/hug?amount=15"
+
+let pictureData;
+
+fetch(picGif)
+    .then(res => {
+        if (!res.ok){
+            console.log("pic wong");
+            throw new Error(`HTTP error ${res.status} pic wonger`);
+        }
+        return res.json();
+    })
+    .then(data => {
+
+        let picture;
+
+        gifHold.forEach((gif, i) => {
+            picture = data.results[i].url;
+            console.log(picture);
+            gif.src = picture;
+            console.log(gifHold.src);
+        })
+
+    })
+    .catch(err => console.error("API error:", err));
+
+picHold.addEventListener("click", () => {
+    if(pictureData == null) {
+        return;
+    }
+    window.open(pictureData,'_blank');
+})
 
 button1.addEventListener("click", (event) => {
     let dateDay = document.getElementById('date').value
@@ -22,7 +56,7 @@ button1.addEventListener("click", (event) => {
 
     const url2 =  `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${dateDay}?key=${apiKey}&unitGroup=metric`;
 
-fetch(url2)
+  fetch(url2)
     .then(res => {
         if (!res.ok){
             buttonText.style.color = "red";
@@ -30,6 +64,27 @@ fetch(url2)
             console.log("yeah");
             throw new Error(`HTTP error ${res.status} MEOWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW`);
         }
+
+        fetch(type)
+            .then(res => {
+                if (!res.ok){
+                    console.log("pic wong");
+                    throw new Error(`HTTP error ${res.status} pic wonger`);
+                }
+                return res.json();
+            })
+            .then(data => {
+                picHold.style.display = "initial";
+
+                const picture = data.results[0].url;
+                pictureData = data.results[0].source_url;
+
+                console.log(picture);
+                picHold.src = picture;
+
+            })
+            .catch(err => console.error("API error:", err));
+
         return res.json();
     })
     .then(data => {
@@ -55,21 +110,13 @@ fetch(url2)
     })
     .catch(err => console.error("API error:", err));
 
-    fetch(pic)
-        .then(res => {
-            if (!res.ok){
-                console.log("pic wong");
-                throw new Error(`HTTP error ${res.status} pic wonger`);
-            }
-            return res.json();
-        })
-        .then(data => {
-            const picture = data.url;
+    let picker = Math.floor(Math.random() * 2);
+    console.log(picker);
 
-            console.log(picture);
-            picHold.style.backgroundImage = "https://i.waifu.pics/dvBjCMa.jpg";
+    let type = pic
 
-        })
-        .catch(err => console.error("API error:", err));
+    if(picker === 1){
+        type = pic2
+    }
 });
 
