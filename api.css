@@ -132,7 +132,7 @@ input {
 #rightHold {
     position: fixed;
     width: 25vw;
-    right: 1vw;
+    right: 2.5vw;
     top: 0vh;
     animation: bgScrollLeft 25s linear infinite;
     animation-direction: alternate-reverse;
