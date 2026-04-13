@@ -16,7 +16,7 @@ let picHold = document.getElementById("picHold");
 let gifHold = document.querySelectorAll(".rightTing");
 let pic = "https://nekos.best/api/v2/husbando"
 let pic2 = "https://nekos.best/api/v2/neko"
-let picGif = "https://nekos.best/api/v2/hug?amount=15"
+let picGif = "https://nekos.best/api/v2/facepalm?amount=15"
 
 let pictureData;
 
